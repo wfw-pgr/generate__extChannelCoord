@@ -4,7 +4,7 @@ import numpy as np
 # ===  generate__extChannelCoord.py                     === #
 # ========================================================= #
 
-def generate__extChannelCoord():
+def generate__extChannelCoord( cnsFile="dat/parameter.conf" ):
 
     x_, y_, z_ = 0, 1, 2
     
@@ -12,7 +12,6 @@ def generate__extChannelCoord():
     # --- [1] load constants                        --- #
     # ------------------------------------------------- #
     import nkUtilities.load__constants as lcn
-    cnsFile = "dat/parameter.conf"
     const   = lcn.load__constants( inpFile=cnsFile )
     
     # ------------------------------------------------- #
