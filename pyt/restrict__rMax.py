@@ -8,10 +8,14 @@ def restrict__rMax():
 
     x_, y_, z_ = 0, 1, 2
     vx_,vy_,vz_= 3, 4, 5
+
+    # ------------------------------------------------- #
+    # --- [1] load constatns / bfield               --- #
+    # ------------------------------------------------- #
+    import nkUtilities.load__constants as lcn
+    cnsFile = "dat/parameter.conf"
+    const   = lcn.load__constants( inpFile=cnsFile )
     
-    # ------------------------------------------------- #
-    # --- [1] load bfield                           --- #
-    # ------------------------------------------------- #
     inpFile = "dat/ems_total_intrp.field"
     with open( inpFile, "r" ) as f:
         Data = np.loadtxt( f, skiprows=2 )
