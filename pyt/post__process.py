@@ -26,7 +26,7 @@ def post__process():
     # --- [3] store in grid                         --- #
     # ------------------------------------------------- #
     import nkBasicAlgs.store__inGrid3D as sig
-    Data = sig.store__inGrdi3D( Data=Data, x1MinMaxNum=const["channel.x1MinMaxNum"], \
+    Data = sig.store__inGrid3D( Data=Data, x1MinMaxNum=const["channel.x1MinMaxNum"], \
                                 x2MinMaxNum=const["channel.x2MinMaxNum"], \
                                 x3MinMaxNum=const["channel.x3MinMaxNum"] )
     
