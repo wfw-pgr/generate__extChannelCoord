@@ -19,7 +19,7 @@ def post__process():
     # --- [2] load data field                       --- #
     # ------------------------------------------------- #
     import nkUtilities.load__pointFile as lpf
-    inpFile = "dat/ems_pst.field"
+    inpFile = "dat/ems_pst_total.field"
     Data    = lpf.load__pointFile( inpFile=inpFile, returnType="point" )
 
     # ------------------------------------------------- #
@@ -35,10 +35,15 @@ def post__process():
     # ------------------------------------------------- #
     if ( const["channel.reflect_z"] ):
         import nkBasicAlgs.reflect__boundary as ref
-        ref.reflect__boundary( Data=Data, boundary="z", parity="even" )
-        
+        Data = ref.reflect__boundary( Data=Data, boundary="z", parity="even" )
+
     # ------------------------------------------------- #
-    # --- [5] save file                             --- #
+    # --- [5] y-shift                               --- #
+    # ------------------------------------------------- #
+    Data[:,:,:,y_] = Data[:,:,:,y_] + const["bfield.yoffset"]
+    
+    # ------------------------------------------------- #
+    # --- [6] save file                             --- #
     # ------------------------------------------------- #
     import nkUtilities.save__pointFile as spf
     outFile   = "dat/ems_port.field"
